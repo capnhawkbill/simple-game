@@ -6,6 +6,7 @@ class stat(object):
 class Health(stat):
 	"""Health actions"""
 	def __init__(self):
+		super(stat, self).__init__()
 		self.health = 100
 
 	def current(self):
@@ -24,6 +25,7 @@ class Health(stat):
 class Stamina(stat):
 	"""Stamina actions"""
 	def __init__(self):
+		super(stat, self).__init__()
 		self.stamina = 100
 	
 	def current(self):

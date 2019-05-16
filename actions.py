@@ -1,26 +1,17 @@
 import random
 from operator import xor
+from custominput import valid_input
 
-def valid_input():
-	"""Gets valid input from user"""
-	while 1:
-		a = int(input("> "))
-
-		if a > 10 or a < 1:
-			print("input needs to be between 1 and 10")
-		else:
-			break
-			return a
 
 class action(object):
 	"""actions in the game"""
 	def __init__(self):
+		self.person = person
 		self.critchance = 20
 		self.dmg_multiplier = 1
-		pass
 
-	def attack(self):
-		print("You attack")
+	def attack(self, attacker):
+		print("{} attacks".format(attacker))
 		random_number = int(random.randint(1, 10))
 
 		#implement dmg multiplier for weapons
@@ -35,5 +26,5 @@ class action(object):
 		print(damage)
 		return damage
 
-	def defend(self):
-		print("you defended")
+	def defend(self, defender):
+		print("{} defended".format(defender))
