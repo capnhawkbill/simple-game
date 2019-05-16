@@ -78,9 +78,3 @@ class action(object):
 
 	def defend(self):
 		print("you defended")
-
-class player(object):
-	"""Player of the game"""
-	def __init__(self):
-		self.Health = Health()
-		self.Stamina = Stamina()
