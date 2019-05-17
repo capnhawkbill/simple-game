@@ -10,6 +10,7 @@ class enemy(object):
 		self.weapon = weapon
 		self.armour = armour
 		self.attackchance = attackchance
+		
 
 	def interact(self):
 		#make him say some stuff from a textfile

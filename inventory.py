@@ -1,13 +1,11 @@
-class inventory(object):
-	"""Inventory"""
+class player_inventory(object):
+	"""Inventory for player"""
 	def __init__(self):
 		self.items = []
 		#first item in array is weapon second is armour
 		self.equipped = ["", ""]
-		pass
 
 	def list(self):		
-
 		#print items in inventory	
 		if len(self.items) > 1:
 			print("Here are the items in your inventory:")
@@ -44,4 +42,11 @@ class inventory(object):
 		print("You equipped: {}".format(name))
 		self.equipped[0] = name
 
-#script that gets the inventory and equipped items from json file
+class enemy_inventory(object):
+	"""Inventory for the enemy"""
+	def __init__(self, owner, weapon, armour):
+		self.owner = owner
+		self.equipped[0] = weapon
+		self.equipped[1] = armour
+
+#script that gets the player inventory and equipped items from json file

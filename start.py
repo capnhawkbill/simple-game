@@ -1,18 +1,18 @@
+import sys
 import actions
 import stats
 import items
 import inventory
-import interaction
 from randomfunctions import cls
 
 #make player
 player_stats = stats.stat()
-player_inventory = inventory.inventory()
+player_inventory = inventory.player_inventory()
 
 #make actions
 player_action = actions.action("player")
 
-#get player interaction in battle
+#get player interaction
 while "true":
 	cls()
 	print("What do you want to do?")
@@ -27,21 +27,42 @@ while "true":
 	action = input("> ")
 
 	if action == "a":
-		break
 		player_action.attack()
+		break
+
 	elif action == "d":
-		break
 		player_action.defend()
+		break
+
 	elif action == "i":
+		player_inventory.list()
 		break
-		
+
 	elif action == "sw":
+		cls()
+		print("With what weapon do you want to switch?")
+		print("-" * 30)
+		weapon = input("> ")
+		player_inventory.equip_weapon(weapon)
 		break
-	elif action == "sa"
+
+	elif action == "sa":
+		cls()
+		print("With what armour do you want to switch?")
+		print("-" * 30)
+		armour = input("> ")
+		player_inventory.equip_armour(armour)		
 		break
+
 	elif action == "r":
+		print("Work in progress")
 		break
+
 	elif action == "q":
-		break
+		print("are you sure? [Y,n]")
+		sure = input("> ")
+		if sure == "Y":
+			sys.exit()
+
 	else:
 		print("That option is not recognised")
