@@ -1,13 +1,15 @@
+import os
+
 def valid_input():
 	"""Gets valid input from user"""
-	while 1:
-		a = int(input("> "))
+	while "true":
+		output = int(input("> "))
 
-		if a > 10 or a < 1:
+		if output > 10 or output < 1:
 			print("input needs to be between 1 and 10")
 		else:
 			break
-			return a
+			return output
 
 def y_or_n():
 	"""gets y or n from user"""
@@ -23,3 +25,15 @@ def y_or_n():
 			break
 		else:
 			print("Type y or n")
+
+def choose_action():
+	"""gets a valid action"""
+	while "true":
+		output = input("> ")
+
+		#if statement with the actions
+
+def cls():
+	#lol = os.system("clear")
+	#lol = os.system("cls")
+	print("\033c")
