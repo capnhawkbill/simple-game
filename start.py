@@ -12,6 +12,8 @@ player_inventory = inventory.player_inventory()
 #make actions
 player_action = actions.action("player")
 
+#get correct json files
+
 #get player interaction
 while "true":
 	cls()

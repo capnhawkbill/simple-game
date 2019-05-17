@@ -1,11 +1,8 @@
-class test(object):
-	"""test"""
-	def __init__(self):
-		pass
+from sys import argv
+import json
 
-	def print(self):
-		print(self)
+argv.pop(0)
 
-test = test()
+outfile = open('output', 'w')
 
-test.print()
+json.dump(argv, outfile)

@@ -7,10 +7,11 @@ class item(object):
 		
 class weapon(item):
 	"""Weapon class"""
-	def __init__(self, name, dmg_multiplier, owner):
+	def __init__(self, name, critchance, dmg_multiplier, owner):
 		super(item, self).__init__()
 		self.name = name
 		self.dmg_multiplier = dmg_multiplier
+		self.critchance = critchance
 		self.owner = owner
 
 	def obtained(self):
@@ -22,10 +23,11 @@ class weapon(item):
 
 class armour(item):
 	"""Defensive item"""
-	def __init__(self, name, dmg_reduction, owner):
+	def __init__(self, name, dmg_reduction, dodgechance, owner):
 		super(item, self).__init__()
 		self.name = name
 		self.dmg_reduction = dmg_reduction
+		self.dodgechance = dodgechance
 		self.owner = owner
 		
 	def obtained(self):
@@ -36,4 +38,7 @@ class armour(item):
 			print("not equipped")
 
 
-#script that gets the weapon info from a json file
+#script that gets the weapons info from a file
+
+with open(weaponfile) as file:
+	
