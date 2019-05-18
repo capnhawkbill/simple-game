@@ -40,5 +40,5 @@ class armour(item):
 
 #script that gets the weapons info from a file
 
-with open(weaponfile) as file:
-	
+# with open(weaponfile) as file:
+# 	pass

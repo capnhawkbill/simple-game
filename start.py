@@ -1,4 +1,5 @@
 import sys
+import json
 import actions
 import stats
 import items
@@ -13,63 +14,67 @@ player_inventory = inventory.player_inventory()
 player_action = actions.action("player")
 
 #get correct json files
-
+inventory_file = open("inventory.json", "r+")
+inventory_file = inventory_file.read()
+equipped, inventory = json.loads(inventory_file)
+print(equipped)
+print(inventory)
 #select and make an enemy
 #get a enemyjson from the map enemy
 
 
 
 #get player interaction
-while "true":
-	cls()
-	print("What do you want to do?")
-	print("\t -Attack (a)")
-	print("\t -Defend (d)")
-	print("\t -Inventory (i)")
-	print("\t -Switch Weapon (sw)")
-	print("\t -Switch Armour (sa)")
-	print("\t -View Quick Reference (r)")
-	print("\t -Quit (q)")
-	print("-" * 30)
-	action = input("> ")
+# while "true":
+# 	cls()
+# 	print("What do you want to do?")
+# 	print("\t -Attack (a)")
+# 	print("\t -Defend (d)")
+# 	print("\t -Inventory (i)")
+# 	print("\t -Switch Weapon (sw)")
+# 	print("\t -Switch Armour (sa)")
+# 	print("\t -View Quick Reference (r)")
+# 	print("\t -Quit (q)")
+# 	print("-" * 30)
+# 	action = input("> ")
 
-	if action == "a":
-		player_action.attack()
-		break
+# 	if action == "a":
+# 		player_action.attack()
+# 		break
 
-	elif action == "d":
-		player_action.defend()
-		break
+# 	elif action == "d":
+# 		player_action.defend()
+# 		break
 
-	elif action == "i":
-		player_inventory.list()
-		break
+# 	elif action == "i":
+# 		player_inventory.list()
+# 		break
 
-	elif action == "sw":
-		cls()
-		print("With what weapon do you want to switch?")
-		print("-" * 30)
-		weapon = input("> ")
-		player_inventory.equip_weapon(weapon)
-		break
+# 	elif action == "sw":
+# 		cls()
+# 		print("With what weapon do you want to switch?")
+# 		print("-" * 30)
+# 		weapon = input("> ")
+# 		player_inventory.equip_weapon(weapon)
+# 		break
 
-	elif action == "sa":
-		cls()
-		print("With what armour do you want to switch?")
-		print("-" * 30)
-		armour = input("> ")
-		player_inventory.equip_armour(armour)		
-		break
+# 	elif action == "sa":
+# 		cls()
+# 		print("With what armour do you want to switch?")
+# 		print("-" * 30)
+# 		armour = input("> ")
+# 		player_inventory.equip_armour(armour)		
+# 		break
 
-	elif action == "r":
-		print("Work in progress")
-		break
+# 	elif action == "r":
+# 		print("Work in progress")
+# 		break
 
-	elif action == "q":
-		print("are you sure? [Y,n]")
-		sure = input("> ")
-		if sure == "Y":
-			sys.exit()
+# 	elif action == "q":
+# 		print("are you sure? [Y,n]")
+# 		sure = input("> ")
+# 		if sure == "Y":
+# 			sys.exit()
 
-	else:
-		print("That option is not recognised")
+# 	else:
+# 		print("That option is not recognised")
