@@ -16,11 +16,7 @@ for i in range(len(argv)):
 	else:
 		inventory_list.append(argv[i])
 
-print("equipped items: {}\n items in inventory: {}".format(equipped, inventory))
-
-
-
 outfile = open('inventory.json', 'w')
 
-# json.dump(equipped, outfile)
-# json.dump(inventory, outfile)
+json.dump({"equipped" : equipped_list}, outfile)
+json.dump({"inventory" : inventory_list}, outfile)
