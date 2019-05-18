@@ -14,6 +14,11 @@ player_action = actions.action("player")
 
 #get correct json files
 
+#select and make an enemy
+#get a enemyjson from the map enemy
+
+
+
 #get player interaction
 while "true":
 	cls()

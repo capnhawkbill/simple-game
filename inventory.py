@@ -57,4 +57,6 @@ class enemy_inventory(object):
 		self.equipped[0] = weapon
 		self.equipped[1] = armour
 
+#do this in start.py
 #script that gets the player inventory and equipped items from json file
+#jsonfile format: list equipped items, list items in inventory
