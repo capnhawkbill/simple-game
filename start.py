@@ -1,5 +1,7 @@
 import sys
 import json
+import os
+import random
 import actions
 import stats
 import items
@@ -14,12 +16,20 @@ player_inventory = inventory.player_inventory()
 player_action = actions.action("player")
 
 #get correct json files
-inventory_file = open("inventory.json", "r+")
-inventory_file = inventory_file.read()
-equipped, inventory = json.loads(inventory_file)
-print(equipped)
-print(inventory)
+# inventory_file = open("inventory.json", "r+")
+# inventory_file = inventory_file.read()
+# equipped, inventory = json.loads(inventory_file)
+# print(equipped)
+# print(inventory)
 #select and make an enemy
+enemies = os.listdir(path='.//enemy')
+print(enemies)
+enemy_name = enemies[random.randint(0, (len(enemies) - 1))]
+print(enemy_name)
+enemy_file = open("{}.json".format(enemy_name), "r")
+content = json.loads(enemy_file)
+print(content)
+# enemy = enemy.enemy(enemy_name, )
 #get a enemyjson from the map enemy
 
 
