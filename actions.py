@@ -3,12 +3,14 @@ from randomfunctions import valid_input
 
 class action(object):
 	"""actions in the game"""
-	def __init__(self, operator):
+	def __init__(self, operator, weapon, armour):
 		self.operator = operator
-		self.critchance = 20
-		self.dmg_multiplier = 1
-		self.dodgechance = 20
-		self.dmg_reduction = 1
+		if weapon == "none":
+			self.critchance = 20
+			self.dmg_multiplier = 1
+		if armour == "none":
+			self.dodgechance = 20
+			self.dmg_reduction = 1
 
 	def attack(self):
 		print("{} attacks".format(self.operator))

@@ -1,17 +1,20 @@
 import actions
 import random
 
-enemy_action = action()
+
 
 class enemy(object):
 	"""enemy"""
-	def __init__(self, name, weapon, armour, attackchance, reward):
+	def __init__(self, name, weapon, armour, 
+		attackchance, reward):
 		self.name = name
 		self.weapon = weapon
 		self.armour = armour
 		self.attackchance = attackchance
 		self.reward = reward
-
+		self.health = 100
+		enemy_action = action.action(self.name, 
+			self.weapon, self.armour)
 
 	def interact(self):
 		#make him say some stuff from a textfile
@@ -22,16 +25,16 @@ class enemy(object):
 		chance = random.randint(1, self.attackchance)
 
 		if chance == 1:
-			enemy_action.attack(self.name)
+			damage = enemy_action.attack(self.name)
 		else:
-			enemy_action.defend(self.name)
+			damage = enemy_action.defend(self.name)
+		
+		self.healt -= damage
+		if self.health <= 0:
+			return "died"
+		else:
+			return "lived"
 
 	def die(self):
 		#print deadmessage and end battle
-		#add self.reward to player inventory
-
-#do this in start.py
-#assemble enemys from jsonfiles in folder enemys
-#layout jsonfile:
-#list with name, weapon, armour, attackchance and reward
-#name of textfile with texts and deadmessages
+		#add self.reward to player inventorygit 

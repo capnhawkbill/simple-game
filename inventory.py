@@ -25,8 +25,10 @@ class player_inventory(object):
 			print("Here are the items you equipped:")
 			print("\tWeapon: {}".format(self.equipped[0]))
 			print("\tArmour: {}".format(self.equipped[1]))
+			input("")
 		else:
 			print("You dont have any items equipped")
+			input("")
 
 	def add(self, name):
 		cls()

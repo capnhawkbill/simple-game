@@ -1,8 +1,8 @@
 from sys import argv, exit
 import json
 
-if len(argv) < 2:
-	print("Need at least 2 arguments")
+if len(argv) < 5:
+	print("Need at least 5 arguments")
 	exit()
 
 script, name, weapon, armour, attackchance, reward = argv
