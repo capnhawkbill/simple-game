@@ -1,4 +1,5 @@
 import sys
+import os
 import json
 import os
 import random
@@ -30,6 +31,17 @@ enemy_file = open("{}.json".format(enemy_name), "r")
 content = json.loads(enemy_file)
 print(content)
 # enemy = enemy.enemy(enemy_name, )
+
+#inventory_file = open("inventory.json", "r+")
+#inventory_file = inventory_file.read()
+#equipped, inventory = json.loads(inventory_file)
+#print(equipped)
+#print(inventory)
+#select and make an enemy
+enemies = os.listdir(path='.//enemy')
+print(enemies)
+enemy = enemies[random.randint(0, (len(enemies) - 1))]
+print(enemy)
 #get a enemyjson from the map enemy
 
 
