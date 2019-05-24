@@ -2,14 +2,15 @@ from randomfunctions import cls
 
 class player_inventory(object):
 	"""Inventory for player"""
-	def __init__(self):
-		self.items = []
+	def __init__(self, equipped, items):
 		#first item in array is weapon second is armour
-		self.equipped = ["", ""]
+		self.equipped = equipped
+		self.items = items
 
 	def list(self):		
 		#print items in inventor
-		cls	
+		#cls()	
+		print(self.equipped, self.items)
 		if len(self.items) > 1:
 			print("Here are the items in your inventory:")
 			for i in range(len(self.items)):
@@ -21,7 +22,7 @@ class player_inventory(object):
 
 		#print equipped items
 
-		if self.equipped[0] != "" or self.equipped[1] != "":
+		if self.equipped[0] != "none" or self.equipped[1] != "none":
 			print("Here are the items you equipped:")
 			print("\tWeapon: {}".format(self.equipped[0]))
 			print("\tArmour: {}".format(self.equipped[1]))
@@ -51,14 +52,3 @@ class player_inventory(object):
 		print("{} is unequipped".format(self.equipped[0]))
 		print("You equipped: {}".format(name))
 		self.equipped[0] = name
-
-class enemy_inventory(object):
-	"""Inventory for the enemy"""
-	def __init__(self, owner, weapon, armour):
-		self.owner = owner
-		self.equipped[0] = weapon
-		self.equipped[1] = armour
-
-#do this in start.py
-#script that gets the player inventory and equipped items from json file
-#jsonfile format: list equipped items, list items in inventory

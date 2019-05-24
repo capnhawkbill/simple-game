@@ -29,7 +29,7 @@ class action(object):
 		#print(damage)
 		return damage
 
-	def defend(self):
+	def defend(self, damage):
 		print("{} defended".format(self.operator))
 
 		#dmg_reduction

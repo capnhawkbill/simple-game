@@ -1,42 +1,18 @@
-class stat(object):
-	"""stats"""
-	def __init__(self):
-		pass
-
-class Health(stat):
+class Health(object):
 	"""Health actions"""
-	def __init__(self):
-		super(stat, self).__init__()
-		self.health = 100
+	def __init__(self, name, health):
+		self.health = health
+		self.name = name
 
 	def current(self):
 		print(self.health)
 
 	def decrease(self, count):
-		print("Your health got decreased by {}".format(count))
+		print("{} health got decreased by {}".format(self.name, count))
 		self.health -= count
 		return self.health
 
 	def increase(self, count):
-		print("Your health got increased by {}".format(count))
+		print("{} health got increased by {}".format(self.name, count))
 		self.health -= count
 		return self.health
-
-class Stamina(stat):
-	"""Stamina actions"""
-	def __init__(self):
-		super(stat, self).__init__()
-		self.stamina = 100
-	
-	def current(self):
-		print(self.stamina)
-
-	def decrease(self, count):
-		print("Your stamina got decreased by {}".format(count))
-		self.stamina -= count
-		return self.stamina
-
-	def increase(self, count):
-		print("Your stamina got increased by {}".format(count))
-		self.stamina += count
-		return self.stamina

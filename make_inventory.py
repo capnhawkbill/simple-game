@@ -18,6 +18,6 @@ for i in range(len(argv)):
 	else:
 		inventory_list.append(argv[i])
 
-outfile = open('./inventory/{}inventory.json'.format(name), 'w')
+outfile = open('./inventory/{}.json'.format(name), 'w')
 json.dump({"equipped": equipped_list, "inventory": inventory_list}, outfile)
 print("Done wrote to {}inventory.json".format(name))
