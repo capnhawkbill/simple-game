@@ -2,10 +2,12 @@ from randomfunctions import cls
 
 class player_inventory(object):
 	"""Inventory for player"""
-	def __init__(self, equipped, items):
+	def __init__(self, json, weapons, armour):
 		#first item in array is weapon second is armour
-		self.equipped = equipped
-		self.items = items
+		self.equipped = json['equipped']
+		self.items = json['items']
+		self.weapons = weapons
+		self.armour = armour
 
 	def list(self):		
 		#print items in inventor
@@ -43,12 +45,26 @@ class player_inventory(object):
 
 	def equip_armour(self, name):
 		cls()
-		print("{} is unequipped".format(self.equipped[1]))
-		print("You equipped: {}".format(name))
-		self.equipped[1] = name
+		if name in self.armour and name in self.items:
+			print("{} is unequipped".format(self.equipped[1]))
+			print("You equipped: {}".format(name))
+			self.equipped[1] = name
+		elif name in self.armour:
+			print("You dont have {} yet".format(name))
+		else:
+			print("{} doesnt exist".format(name))
 
 	def equip_weapon(self, name):
 		cls()
-		print("{} is unequipped".format(self.equipped[0]))
-		print("You equipped: {}".format(name))
-		self.equipped[0] = name
+		if name in self.weapons and name in self.items
+			print("{} is unequipped".format(self.equipped[0]))
+			print("You equipped: {}".format(name))
+			self.equipped[0] = name
+		elif name in self.weapons:
+			print("You dont have {} yet".format(name))
+		else:
+			print("{} doesnt exist".format(name))
+
+	def write_json(self):
+		#call at end of inv modification to write to json
+		pass

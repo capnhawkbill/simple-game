@@ -6,9 +6,10 @@ import random
 import actions
 import stats
 import items
+import info
 from inventory import player_inventory
 import enemy
-from randomfunctions import cls, player_input
+from randomfunctions import cls, player_input, y_or_n
 
 len_argv = len(sys.argv)
 if len_argv < 2:
@@ -22,44 +23,37 @@ elif len_argv == 3:
 	enemy_name = sys.argv[2]
 	selectenemy = "false"
 
+#make actions
+player_action = actions.action("player", 
+	inventory.equipped[0], inventory.equipped[1])
+player_health = stats.Health("player", 100)
+
+#make all the items
+
+
 #select and make an enemy
 if selectenemy:
 	enemies = os.listdir(path='.//enemy')
 	enemy_name = enemies[random.randint(0, (len(enemies) - 1))]
 
 enemy_file = open("./enemy/{}".format(enemy_name), "r")
-enemy_name, enemy_health, enemy_weapon, enemy_armour, enemy_attackchace, enemy_reward = json.load(enemy_file)
-print(enemy_attackchace)
-enemy = enemy.enemy(enemy_name, enemy_health, enemy_weapon, enemy_armour, 
-	enemy_attackchace, enemy_reward, 'placeholder')
+enemy_json = {}
+enemy_json = json.load(enemy_file)
+enemy = enemy.enemy(enemy_json, 'placeholder')
 
 #get inventory json
 inventory_file = open("./inventory/{}.json".format(inventory_file), 
 	"r+")
-equipped, inventory = json.load(inventory_file)
-print(equipped, "\n", inventory)
-inventory = player_inventory(equipped, items)
+inventory_json = {}
+inventory_json = json.load(inventory_file)
+inventory = player_inventory(inventory_json, 
+	all_weapons, all_armour)
 
-#make actions
-player_action = actions.action("player", equipped[0], equipped[1])
-player_health = stats.Health("player", 100)
-
-#make all the items
-all_armour = os.listdir(path='./items/armour')
-armour_insts = {}
-for i in range(len(all_armour)):
-	file = open("./items/armour/{}".format(all_armour[i]))
-	itemtype, name, dmg_reduction, dodgechance = json.load(file)
-	armour_insts[name] = items.armour(name, 
-		dmg_reduction, dodgechance)
-
-all_weapons = os.listdir(path='./items/weapons')
-weapon_insts = {}
-for i in range(len(all_weapons)):
-	file = open("./items/weapons/{}".format(all_weapons[i]))
-	itemtype, name, dmg_multiplier, critchance = json.load(file)
-	weapon_insts[name] = items.weapon(name, 
-		dmg_multiplier, critchance)
+#display introduction
+print("Do you want to get the introduction?")
+intro = y_or_n()
+if intro == 1:
+	info.intro()
 
 #enemy action
 attacked = enemy.decide()
@@ -89,7 +83,6 @@ while "true":
 		break
 	elif action == "i":
 		inventory.list()
-		break
 
 	elif action == "sw":
 		cls()
@@ -108,11 +101,10 @@ while "true":
 		break
 	
 	elif action == "r":
-		print("Work in progress")
-		break
+		info.reference()
 
 	elif action == "q":
-		print("are you sure? [Y,n]")
+		print("are you sure? [y,N]")
 		sure = input("> ")
 		if sure == "Y":
 			sys.exit()

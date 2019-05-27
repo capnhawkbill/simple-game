@@ -10,9 +10,7 @@ class Health(object):
 	def decrease(self, count):
 		print("{} health got decreased by {}".format(self.name, count))
 		self.health -= count
-		return self.health
 
 	def increase(self, count):
 		print("{} health got increased by {}".format(self.name, count))
 		self.health -= count
-		return self.health
